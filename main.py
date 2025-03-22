@@ -1,6 +1,3 @@
-import os
-# 设置环境变量，必须在导入numpy和torch之前
-os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 import argparse
 import copy
 import time
