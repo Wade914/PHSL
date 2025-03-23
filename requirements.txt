@@ -1,0 +1,9 @@
+matplotlib==3.10.1
+networkx==3.4.2
+numpy==1.24.2
+pandas==2.2.3
+PyYAML==6.0.2
+PyYAML==6.0.2
+scikit_learn==1.6.1
+scipy==1.15.2
+torch==2.2.0+cu121
