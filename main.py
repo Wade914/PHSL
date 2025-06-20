@@ -5,22 +5,22 @@ import numpy as np
 import torch
 import pickle
 import torch.nn.functional as F
-import PROSE_HGNN.HGNN_utils.hypergraph_utils as hgut
+import HGNN_utils.hypergraph_utils as hgut
 from data_loader import load_data, new_load_data
 from model import GCL, HGNN_Classifer
 from graph_learners import *
-from PROSE_HGNN.utils import *
+from utils import *
 from sklearn.metrics import f1_score, roc_auc_score
 from sklearn.cluster import KMeans
-from PROSE_HGNN.config import get_config
-from PROSE_HGNN.datasets.visual_data import load_feature_construct_H
-from PROSE_HGNN.datasets.data_preprocess import data_process
+from config import get_config
+from datasets.visual_data import load_feature_construct_H
+from datasets.data_preprocess import data_process
 import random
-from PROSE_HGNN.models import HGNN
-from PROSE_HGNN.models.ConvNet import ConvNet
+from models import HGNN
+from models.ConvNet import ConvNet
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
-from PROSE_HGNN.layers import HGNNConv_dense
+from layers import HGNNConv_dense
 from sklearn.preprocessing import MinMaxScaler, scale, MaxAbsScaler, normalize
 import pandas as pd
 import pickle
@@ -264,7 +264,7 @@ class Experiment:
     def train(self, args):
 
 
-        cfg = get_config('config/config.yaml')
+        cfg = get_config('./config/config.yaml')
         sample_length = 1024
         file_path = ['data/data/normal.csv', 'data/data/fault1.csv', 'data/data/fault2.csv', 'data/data/fault3.csv',
                      'data/data/2021_59.csv', 'data/data/2021_60.csv', 'data/data/2021_61.csv']
@@ -285,7 +285,8 @@ class Experiment:
                 m_prob=cfg['m_prob'],
                 K_neigs=cfg['K_neigs'],
                 is_probH=cfg['is_probH'],)
-
+#        df = pd.DataFrame(adj_original)
+#        df.to_csv('data/data/H_0.csv', index=False)
         corresponding_test_aucc = []
         test_accuracies = []
         validation_accuracies = []

@@ -1,11 +1,11 @@
 # import dgl.function as fn
 import torch
-from PROSE_HGNN.models import HGNN_conv
+from models import HGNN_conv
 import torch.nn as nn
 import numpy as np
 import torch.nn.functional as F
 EOS = 1e-10
-import PROSE_HGNN.HGNN_utils.hypergraph_utils as hgut
+import HGNN_utils.hypergraph_utils as hgut
 
 class HGNNConv_dense(nn.Module):
 

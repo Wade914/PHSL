@@ -2,7 +2,7 @@ import copy
 import math
 
 import torch
-from PROSE_HGNN.models import HGNN_conv
+from models import HGNN_conv
 from graph_learners import *
 from layers import HGNNConv_dense
 from torch.nn import Sequential, Linear, ReLU

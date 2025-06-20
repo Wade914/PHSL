@@ -9,7 +9,8 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import euclidean_distances
 from scipy.spatial.distance import euclidean
 from collections import defaultdict
-
+import os
+import csv
 
 def add_white_noise(signal, snr_db=10, seed=None):
     if seed is not None:
@@ -55,12 +56,12 @@ def data_process(file_path, sample_length):
 
         # print(current2_data[0])
         orignal_data.extend(current2_data)
-        # noise = add_white_noise(current2_data, snr_db=5)
+#        noise = add_white_noise(current2_data, snr_db=0)
         # print("noise",noise[0])
-        # if file_name in target_files:
-        #     current2_data = current2_data+noise
-        # else:
-        #     current2_data = current2_data+noise
+#        if file_name in target_files:
+#            current2_data = current2_data+noise
+#        else:
+#            current2_data = current2_data+noise
 
         # print(current2_data[0])
         file_name_without_extension = file_name.split('.')[0]
@@ -127,9 +128,9 @@ def data_process(file_path, sample_length):
         data_list = data_list[mask]
         data_list_.extend(data_list)
         labels = torch.tensor(labels).numpy()
-        labels = labels[mask]
+        # labels = labels[mask]
         labels_list.extend(labels)
-        idx_all = idx_all[mask]
+        # idx_all = idx_all[mask]
         idx.extend(idx_all)
 
     X = np.array(data_list_)
@@ -149,5 +150,14 @@ def data_process(file_path, sample_length):
     # print(orignal_data[0],orignal_data[291])
 
     number_list = np.array(number_list)
+
+#    df = pd.DataFrame(X)
+#    df.to_csv('data/data/X_0.csv', index=False)
+
+#    df = pd.DataFrame(Y)
+#    df.to_csv('data/data/Y_0.csv', index=False)
+    
+#    df = pd.DataFrame(idx)
+#    df.to_csv('data/data/idx_0.csv', index=False)
 
     return X, Y, idx, number_list

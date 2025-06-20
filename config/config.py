@@ -3,7 +3,7 @@ import yaml
 import os.path as osp
 
 
-def get_config(dir='../config/config.yaml'):
+def get_config(dir='./config.yaml'):
     # add direction join function when parse the yaml file
     def join(loader, node):
         seq = loader.construct_sequence(node)

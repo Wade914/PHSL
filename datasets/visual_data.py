@@ -1,9 +1,9 @@
-from PROSE_HGNN.datasets.data_helper import load_ft
-from PROSE_HGNN.datasets.data_helper import load
-from PROSE_HGNN.HGNN_utils import hypergraph_utils as hgut
+from datasets.data_helper import load_ft
+from datasets.data_helper import load
+from HGNN_utils import hypergraph_utils as hgut
 import numpy as np
 import torch
-from PROSE_HGNN.graph_learners import *
+from graph_learners import *
 import pandas as pd
 
 def load_feature_construct_H(X,
